@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import ProtectedRoute from "../Components/ProtectedRoute";
 import AddElements from "../Components/AddElement/AddElements";
+import { useHistory } from "react-router-dom";
 
 import {
   ThemeProvider,
@@ -86,7 +87,7 @@ const LoginForm = () => {
           localStorage.setItem("isAuthenticated", true);
           setTimeout(() => {
             setHomeView(true);
-          }, 3000);
+          }, 2000);
         } else {
           alert("please enter correct password!");
         }
@@ -99,7 +100,7 @@ const LoginForm = () => {
   };
   return (
     <Box my={8} textAlign="left">
-      {homeView ? <Redirect path="/add" /> : null}
+      {homeView ? <Redirect to="/add" /> : null}
       <form>
         <FormControl>
           <FormLabel>Email address</FormLabel>

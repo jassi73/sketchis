@@ -36,23 +36,6 @@ function App() {
           Signup
         </Button>
       </Link>
-      <Divider orientation="vertical" />
-      <Divider orientation="vertical" />
-      <Divider orientation="vertical" />
-      <Divider orientation="vertical" />
-      <Divider orientation="vertical" />
-      <Divider orientation="vertical" />
-      <Divider orientation="vertical" />
-      <Link to="/add">
-        <Button
-          variantColor={VARIANT_COLOR}
-          width="full"
-          mt={4}
-          colorScheme="blue"
-        >
-          Element
-        </Button>
-      </Link>
     </Flex>
   );
 }

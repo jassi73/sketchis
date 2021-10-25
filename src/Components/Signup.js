@@ -20,6 +20,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const VARIANT_COLOR = "teal";
 
@@ -27,12 +28,12 @@ const Signup = () => {
   return (
     <Box>
       <CSSReset />
-      <LoginArea />
+      <SignupArea />
     </Box>
   );
 };
 
-const LoginArea = () => {
+const SignupArea = () => {
   return (
     <Flex h="470px" width="50" align="center" justifyContent="center" mt="16">
       <Box
@@ -45,24 +46,26 @@ const LoginArea = () => {
         boxShadow="lg"
       >
         <Box p={4}>
-          <LoginHeader />
-          <LoginForm />
+          <SignupHeader />
+          <SignupForm />
         </Box>
       </Box>
     </Flex>
   );
 };
 
-const LoginHeader = () => {
+const SignupHeader = () => {
   return (
     <Box textAlign="center">
-      <Heading>Sign In to Your Account</Heading>
+      <Heading>SignUp Your Account</Heading>
       <Text></Text>
     </Box>
   );
 };
 
-const LoginForm = () => {
+const SignupForm = () => {
+  const history = useHistory();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -89,6 +92,7 @@ const LoginForm = () => {
       localStorage.setItem("users", JSON.stringify(initialUsers));
     }
     dispatch(create_user(data));
+    history.push("/login");
   };
 
   return (

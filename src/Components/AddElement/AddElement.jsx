@@ -1,9 +1,14 @@
 import { useState } from "react";
-import { Button, HStack, Input, useToast } from "@chakra-ui/react";
+import { Button, HStack, Input, useToast, Box } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
 
 const AddElement = ({ elements, setElements }) => {
   const [element, setElement] = useState("");
+
+  const [query, setQuery] = useState("");
+  const [searchClicked, setSearchClicked] = useState(false);
+  const [searchElements, setSearchElements] = useState([]);
+
   const toast = useToast();
 
   const handleChange = (e) => {
@@ -32,17 +37,19 @@ const AddElement = ({ elements, setElements }) => {
   };
 
   return (
-    <HStack>
-      <Input
-        variant="filled"
-        placeholder="Add Element.."
-        onChange={(e) => handleChange(e)}
-        value={element}
-      />
-      <Button colorScheme="blue" px={8} onClick={() => addElement()}>
-        Add element
-      </Button>
-    </HStack>
+    <Box>
+      <HStack p="2">
+        <Input
+          variant="filled"
+          placeholder="Add Elements"
+          onChange={(e) => handleChange(e)}
+          value={element}
+        />
+        <Button colorScheme="blue" px={9} onClick={() => addElement()}>
+          Add
+        </Button>
+      </HStack>
+    </Box>
   );
 };
 

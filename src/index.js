@@ -24,8 +24,7 @@ ReactDOM.render(
           <Route path="/" component={App} exact />
           <Route path="/signup" component={Signup} exact />
           <Route path="/login" component={Login} />
-          {/* <Route exact path="/add" component={AddElements} /> */}
-          <ProtectedRoute component={AddElements} path="/add" />
+          <Route path="/add" component={AddElements} />
         </Router>
       </ChakraProvider>
     </React.StrictMode>
