@@ -1,15 +1,9 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { create_user } from "../Features/App/Action";
 import {
-  ThemeProvider,
-  theme,
-  ColorModeProvider,
   CSSReset,
   Box,
   Flex,
-  IconButton,
-  useColorMode,
   Heading,
   Text,
   FormControl,
@@ -19,7 +13,7 @@ import {
   Checkbox,
   Button,
 } from "@chakra-ui/react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 const VARIANT_COLOR = "teal";
@@ -70,9 +64,6 @@ const SignupForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state);
-  console.log("state", state);
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
@@ -81,7 +72,6 @@ const SignupForm = () => {
       password: password,
     };
     let users = localStorage.getItem("users");
-    console.log(users);
     if (users) {
       let parsedUsers = JSON.parse(users);
       parsedUsers.push(data);
@@ -91,7 +81,6 @@ const SignupForm = () => {
       let initialUsers = [data];
       localStorage.setItem("users", JSON.stringify(initialUsers));
     }
-    dispatch(create_user(data));
     history.push("/login");
   };
 

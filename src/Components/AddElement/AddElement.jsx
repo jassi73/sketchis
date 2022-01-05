@@ -5,10 +5,6 @@ import { nanoid } from "nanoid";
 const AddElement = ({ elements, setElements }) => {
   const [element, setElement] = useState("");
 
-  const [query, setQuery] = useState("");
-  const [searchClicked, setSearchClicked] = useState(false);
-  const [searchElements, setSearchElements] = useState([]);
-
   const toast = useToast();
 
   const handleChange = (e) => {
@@ -30,7 +26,6 @@ const AddElement = ({ elements, setElements }) => {
       id: nanoid(),
       text: element,
     };
-    console.log(element);
 
     setElements([...elements, newElement]);
     setElement("");

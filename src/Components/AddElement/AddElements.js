@@ -11,12 +11,9 @@ import {
   Input,
   useToast,
 } from "@chakra-ui/react";
-import { MdLogout } from "react-icons/md";
-import { withRouter, Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import { FaSun, FaMoon } from "react-icons/fa";
-import Element from "./Element";
 import Elements from "./Elements";
-import EmptyElement from "./EmptyElement";
 import AddElement from "./AddElement";
 import { ExportToCsv } from "export-to-csv";
 
@@ -37,7 +34,6 @@ function AddElements() {
   const [query, setQuery] = useState("");
   const [searchClicked, setSearchClicked] = useState(false);
   const [searchElements, setSearchElements] = useState([]);
-  const toast = useToast();
 
   useEffect(() => {
     localStorage.setItem("element", JSON.stringify(elements));
